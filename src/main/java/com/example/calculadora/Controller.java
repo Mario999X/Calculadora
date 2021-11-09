@@ -5,44 +5,33 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-class MainController {
+class Controller {
 
     @FXML
     private Label resultado;
-    private long numero1 = 0;
-    private long numero2 = 0;
+    private long numero1;
+    private long numero2;
     private String operador = "";
     private boolean comenzar = true;
     private Model model = new Model();
 
-    @FXML
-    private void procesadorNumeros(ActionEvent evento){
-        if (comenzar){
-            resultado.setText("");
-            comenzar = false;
-        }
-        String valor = ((Button)evento.getSource()).getText();
-        resultado.setText(resultado.getText() + valor);
-    }
-    @FXML
-    private void procesadorOperador(ActionEvent evento){
-        String valor = ((Button) evento.getSource()).getText();
-        if (!valor.equals("=")){
-            if(operador.isEmpty())
-                return;
-            operador = valor;
-            numero1 = Long.parseLong(resultado.getText());
-            resultado.setText("");
-        }else{
-            if (!operador.isEmpty())
-                return;
-            numero2 = Long.parseLong(resultado.getText());
-            float output = model.calcular(numero1, numero2, operador);
-            resultado.setText(String.valueOf(output));
-            operador = "";
-            comenzar = true;
-        }
-
+    public Controller(Label numero) {
+        this.resultado = numero;
     }
 
+    public void manejaBoton(ActionEvent e){
+        resultado.setText(resultado.getText()+ ((Button)e.getSource()).getText());
+    }
+
+    public void manejaResultado(ActionEvent e){
+        resultado.setText(resultado.getText() + model.calcular(numero1,numero2,operador));
+    }
+
+    public long getNumero1() {
+        return numero1;
+    }
+
+    public long getNumero2() {
+        return numero2;
+    }
 }

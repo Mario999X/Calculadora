@@ -1,7 +1,6 @@
 package com.example.calculadora;
 
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -27,11 +26,33 @@ public class View extends VBox {
     private Button btn7;
     private Button btn8;
     private Button btn9;
-    private Label label;
+    private Label numero = new Label();
     private GridPane keyboard;
-    View(){
+    private Controller controlador;
+    public View(){
+        initView();
+        controlador = new Controller(numero);
+        btn0.setOnAction(e -> controlador.manejaBoton(e));
+        btn1.setOnAction(e -> controlador.manejaBoton(e));
+        btn2.setOnAction(e -> controlador.manejaBoton(e));
+        btn3.setOnAction(e -> controlador.manejaBoton(e));
+        btn4.setOnAction(e -> controlador.manejaBoton(e));
+        btn5.setOnAction(e -> controlador.manejaBoton(e));
+        btn6.setOnAction(e -> controlador.manejaBoton(e));
+        btn7.setOnAction(e -> controlador.manejaBoton(e));
+        btn8.setOnAction(e -> controlador.manejaBoton(e));
+        btn9.setOnAction(e -> controlador.manejaBoton(e));
+        btnMas.setOnAction(e -> controlador.manejaBoton(e));
+        btnMenos.setOnAction(e -> controlador.manejaBoton(e));
+        btnMult.setOnAction(e -> controlador.manejaBoton(e));
+        btnDiv.setOnAction(e -> controlador.manejaBoton(e));
+        btnIgual.setOnAction(e -> controlador.manejaResultado(e));
+
+
+    }
+   public void initView(){
+
         cont=0;
-        label = new Label("");
         btnMas = new Button("+");
         btnMenos = new Button("-");
         btnMult = new Button("x");
@@ -52,7 +73,7 @@ public class View extends VBox {
 
         keyboard =new GridPane();
 
-        this.getChildren().add(label);
+        this.getChildren().add(numero);
         keyboard.add(btn0,1,4);
         keyboard.add(btn1,1,1);
         keyboard.add(btn4,1,2);
@@ -74,80 +95,7 @@ public class View extends VBox {
         btnPunt.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
         this.getChildren().add(keyboard);
 
-        btn0.setOnAction((ActionEvent e)-> {
 
-            label.setText(label.getText()+0);
-        });
-
-        btn1.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+1);
-        });
-
-        btn2.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+2);
-        });
-
-        btn3.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+3);
-        });
-
-        btn4.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+4);
-        });
-
-        btn5.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+5);
-        });
-
-        btn6.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+6);
-        });
-
-        btn7.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+7);
-        });
-
-        btn8.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+8);
-        });
-
-        btn9.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+9);
-        });
-
-        btnMas.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+ "+");
-        });
-
-        btnMenos.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+ "-");
-        });
-
-        btnMult.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+ "x");
-        });
-
-        btnDiv.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+ "/");
-        });
-
-        btnIgual.setOnAction((ActionEvent e)-> {
-
-            label.setText(label.getText()+ "");
-        });
     }
 
 }
