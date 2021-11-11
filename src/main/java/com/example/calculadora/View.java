@@ -8,51 +8,36 @@ import javafx.scene.layout.VBox;
 
 
 public class View extends VBox {
-    private int cont;
-    private Button btnMas;
-    private Button btnMenos;
-    private Button btnMult;
-    private Button btnDiv;
-    private Button btnIgual;
-    private Button btnPunt;
-    private Button btnC;
-    private Button btn0;
-    private Button btn1;
-    private Button btn2;
-    private Button btn3;
-    private Button btn4;
-    private Button btn5;
-    private Button btn6;
-    private Button btn7;
-    private Button btn8;
-    private Button btn9;
+
+    private Button btnMas, btnMenos, btnMult, btnDiv, btnIgual, btnPunt, btnC, btn0, btn1, btn2, btn3,
+                   btn4, btn5, btn6, btn7, btn8, btn9;
     private Label numero = new Label();
     private GridPane keyboard;
     private Controller controlador;
+
     public View(){
         initView();
         controlador = new Controller(numero);
-        btn0.setOnAction(e -> controlador.manejaBoton(e));
-        btn1.setOnAction(e -> controlador.manejaBoton(e));
-        btn2.setOnAction(e -> controlador.manejaBoton(e));
-        btn3.setOnAction(e -> controlador.manejaBoton(e));
-        btn4.setOnAction(e -> controlador.manejaBoton(e));
-        btn5.setOnAction(e -> controlador.manejaBoton(e));
-        btn6.setOnAction(e -> controlador.manejaBoton(e));
-        btn7.setOnAction(e -> controlador.manejaBoton(e));
-        btn8.setOnAction(e -> controlador.manejaBoton(e));
-        btn9.setOnAction(e -> controlador.manejaBoton(e));
-        btnMas.setOnAction(e -> controlador.manejaBoton(e));
-        btnMenos.setOnAction(e -> controlador.manejaBoton(e));
-        btnMult.setOnAction(e -> controlador.manejaBoton(e));
-        btnDiv.setOnAction(e -> controlador.manejaBoton(e));
-        btnIgual.setOnAction(e -> controlador.manejaResultado(e));
-
+        btn0.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn1.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn2.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn3.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn4.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn5.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn6.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn7.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn8.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btn9.setOnAction(e -> controlador.manejaBotonNumerico(e));
+        btnMas.setOnAction(e -> controlador.manejaBotonOperacion(e));
+        btnMenos.setOnAction(e -> controlador.manejaBotonOperacion(e));
+        btnMult.setOnAction(e -> controlador.manejaBotonOperacion(e));
+        btnDiv.setOnAction(e -> controlador.manejaBotonOperacion(e));
+        btnIgual.setOnAction(e -> controlador.manejaBotonOperacion(e));
+        btnC.setOnAction(e -> controlador.manejaBotonC(e));
 
     }
    public void initView(){
 
-        cont=0;
         btnMas = new Button("+");
         btnMenos = new Button("-");
         btnMult = new Button("x");

@@ -2,7 +2,26 @@ package com.example.calculadora;
 
 public class Model {
 
-    public float calcular (long numero1, long numero2, String operador){
+    private float numero1, numero2;
+    private String operador;
+
+
+    public void setNumero1(float numero1) {
+        this.numero1 = numero1;
+    }
+
+
+    public void setNumero2(float numero2) {
+        this.numero2 = numero2;
+    }
+
+    public void setOperador(String operador) {
+        this.operador = operador;
+    }
+
+
+
+    public float calcular (){
         switch (operador){
             case "+":
                return numero1 + numero2;
