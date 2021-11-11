@@ -34,6 +34,7 @@ public class View extends VBox {
         btnDiv.setOnAction(e -> controlador.manejaBotonOperacion(e));
         btnIgual.setOnAction(e -> controlador.manejaBotonOperacion(e));
         btnC.setOnAction(e -> controlador.manejaBotonC(e));
+        btnPunt.setOnAction(e -> controlador.manejaBotonNumerico(e));
 
     }
    public void initView(){
