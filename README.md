@@ -1,4 +1,4 @@
 # Calculadora
 
 CALCULADORA REALIZADA CON JAVA FX;
-Funciona y es fea.
+Funciona y esta bien fearda, justo como yo.
